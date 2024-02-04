@@ -43,14 +43,13 @@ public class FilePropsWriter implements PropsWriter {
         log.debug("CORES: {}", CORES);
 
         for (int i = 0; i < CORES; i++){
-            BlockingQueue blockingQueue = new LinkedBlockingQueue();
+            BlockingQueue<PropsFile> blockingQueue = new LinkedBlockingQueue<>();
             threadToQueue.put(getThreadName(i), blockingQueue);
             executor.submit(() -> {
                 String threadName = Thread.currentThread().getName();
                 log.debug("threadName is {}", threadName);
-                BlockingQueue<PropsFile> bq = blockingQueue;
                 while (true){
-                    PropsFile propsFile = bq.take();
+                    PropsFile propsFile = blockingQueue.take();
                     log.debug("Writing {} with {}", propsFile.fileName, propsFile.props);
                     String outputPath = outputDirectory + File.separator + propsFile.fileName;
                     try (OutputStream outputStream = new FileOutputStream(outputPath)) {
