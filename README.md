@@ -17,7 +17,7 @@ The server exposes a REST API POST endpoint at /api/v1/file/name where `name` is
 * 500 Internal Server Error: An unexpected server error occurred.
 
 ## How to run
-1. Install `mvn` (Maven).
+1. Install JDK 17+ and `mvn` (Maven).
 2. Create server.properties file:
 ```shell
 server.port=8888
