@@ -1,6 +1,5 @@
 package io.github.anomal.propsserver.api;
 
-import io.github.anomal.propsserver.writer.FilePropsWriter;
 import io.github.anomal.propsserver.writer.PropsWriter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
