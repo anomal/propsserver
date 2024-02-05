@@ -64,7 +64,7 @@ public class FilePropsWriter implements PropsWriter {
     public void write(String name, Properties props) {
         try {
             String filename = name + ".properties";
-            int threadId = Math.abs(filename.hashCode()) % CORES;
+            int threadId = Math.abs(filename.hashCode() % CORES);
             PropsFile propsFile = new PropsFile(filename, props);
             String threadName = getThreadName(threadId);
             log.debug("Using {}", threadName);
