@@ -7,7 +7,7 @@
 * The server should handle messages sent by multiple clients simultaneously, so there is no guarantee that a client's message will not be overwritten by another client sending a message for the same filename. 
 * Write throughput and performance is more important than a client receiving synchronous confirmation of a successful write.
 
-## Design
+### Design
 
 The server exposes a REST API POST endpoint at /api/v1/file/name where `name` is the name of the properties file without the `.properties` extension. Only alphanumeric characters, `_`, and `-` are supported. Supported filename characters were designed to be a non-configurable allowlist, to avoid misconfigurations that can introduce security issues, such as allowing the character `.`, which can result in writing to a parent directory with `..` in Linux/Unix.
 
